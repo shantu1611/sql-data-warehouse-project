@@ -64,6 +64,7 @@ SELECT
 			FROM bronze.crm_cust_info
 			WHERE cst_id is not null
 		) t
+		where flag_last=1;
 	
 set @end_time= getdate();
 PRINT '>> LOAD DURATION: '+ CAST(DATEDIFF(second,@start_time,@end_time) as NVARCHAR(50))+' seconds';
@@ -164,7 +165,7 @@ set @end_time= getdate();
 PRINT '>> LOAD DURATION: '+ CAST(DATEDIFF(second,@start_time,@end_time) as NVARCHAR(50))+' seconds';
 PRINT '==============================='
 
---insert into silver.erp_cust_az12
+--insert into silver.erp_cust
 
 set @start_time= getdate();
 print '>> Truncating Table: sivler.erp_cust_az12:'
