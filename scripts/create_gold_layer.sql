@@ -35,6 +35,7 @@ SELECT
         ELSE COALESCE(ca.gen, 'n/a')  			   -- Fallback to ERP data
     END                                AS gender,
     ca.bdate                           AS birthdate,
+    datediff(year,bdate,current_date) AS age,
     ci.cst_create_date                 AS create_date
 FROM silver.crm_cust_info ci
 LEFT JOIN silver.erp_cust_az12 ca
